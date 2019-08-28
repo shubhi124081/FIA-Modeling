@@ -9,6 +9,17 @@ require(foreign)
 source('clarkFunctions.R')
 
 
+#functions ----
+
+#trim dataset
+subsetCols <- function(varList, dataset){
+  cols <- vector(length = length(varList))
+  for(i in 1:length(varList)){
+    cols[i] <- which(names(dataset) == varList[i])
+  }
+  return(cols)
+}
+
 #read in data ----
 
 mod13q1_evi <- read.csv("MOD13Q1_EVI_yearly.csv")
